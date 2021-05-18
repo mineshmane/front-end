@@ -1,0 +1,23 @@
+<div fxLayout="row" fxLayoutAlign='center center'>
+    <mat-card class="card" fxLayout="column">
+
+        <mat-form-field appearance="outline">
+            <mat-label>username</mat-label>
+            <input matInput [(ngModel)]="username" placeholder="username">
+           
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>email</mat-label>
+            <input matInput [(ngModel)]="email" placeholder="email">
+          
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>phoned</mat-label>
+            <input matInput [(ngModel)]="phone" placeholder="phone">
+         
+        </mat-form-field>
+        <button mat-raised-button color="primary" (click)="submit()">Primary</button>
+
+    </mat-card>
+
+</div>

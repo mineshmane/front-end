@@ -1,0 +1,23 @@
+<mat-card class="main" fxLayout="row" fxLayoutAlign="center center" >
+    <div fxFlex=100 fxLayout="column" fxLayoutAlign="center center" >
+        <h1>Paymentdetails</h1>
+        <span>Total Amount is</span>
+        <p>{{Amount}}</p>
+
+        <mat-form-field appearance="legacy">
+            <mat-label>Enter Amount</mat-label>
+            <input matInput placeholder="Enter amout" [(ngModel)]="amount">
+        </mat-form-field>
+        <div fxLayout="row">
+            <div>
+                <button mat-raised-button color="primary" (click)="Withdrwa()">withdrwa amount</button>
+    
+            </div>
+            <div>
+                <button mat-raised-button color="accent" (click)="deposite()">deposite amount </button>
+    
+            </div>
+        </div>
+       
+    </div>
+</mat-card>
