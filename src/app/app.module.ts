@@ -14,6 +14,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { VerificationComponent } from './components/verification/verification.component';
 import { PaymentComponent } from './components/payment/payment.component';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,7 @@ import { PaymentComponent } from './components/payment/payment.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,HttpClientModule,
+    AppRoutingModule,HttpClientModule,MatSnackBarModule,
     MatCardModule,
     BrowserAnimationsModule, MatFormFieldModule, FlexLayoutModule,MatButtonModule,FormsModule,
     MatInputModule,

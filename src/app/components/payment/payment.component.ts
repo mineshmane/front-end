@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MatSnackBar } from '@angular/material';
 import { HttpService } from '../../services/http.service'
 @Component({
   selector: 'app-payment',
@@ -7,8 +8,8 @@ import { HttpService } from '../../services/http.service'
 })
 export class PaymentComponent implements OnInit {
   public Amount;
-  public amount=0;
-  constructor(private http: HttpService) { }
+  public amount = 0;
+  constructor(private http: HttpService, private snackBar: MatSnackBar) { }
 
   ngOnInit() {
     this.getAmount();
@@ -31,16 +32,27 @@ export class PaymentComponent implements OnInit {
     this.http.Put('deposite/' + localStorage.getItem('usertoken'), req).subscribe((result) => {
       console.log(result);
       this.getAmount()
+      this.snackBar.open("Rs." + this.amount + 'Cr deposited in your account succesfull', '', {
+        duration: 2000,
+
+      });
+      this.amount = 0
+
 
     })
   }
-  Withdrwa(){
+  Withdrwa() {
     let req = {
       amount: this.amount
     }
     this.http.Put('withdraw/' + localStorage.getItem('usertoken'), req).subscribe((result) => {
       console.log(result);
+
       this.getAmount()
+      this.snackBar.open("Rs." + this.amount + 'Cr debited from your account succesfull', '', {
+        duration: 2000,
+      });
+      this.amount = 0
 
     })
   }

@@ -1,16 +1,20 @@
-import { Component } from '@angular/core';
-import { from } from 'rxjs';
+import { Component, OnDestroy ,Inject} from '@angular/core';
 import IdleTimer from './idealtimer';
-import { Router} from '@angular/router'
+import { Router} from '@angular/router';
+import { DOCUMENT } from '@angular/common';
+import { MatSnackBar } from '@angular/material';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnDestroy {
   title = 'Online Pay center';
   timer: any;
-  constructor(private route:Router){
+  constructor(private route:Router,private snackBar: MatSnackBar,
+    @Inject(DOCUMENT) private _document: Document
+    ){
 
   }
 
@@ -19,12 +23,19 @@ export class AppComponent {
       timeout: 30, //expired after 30 sec 
       onTimeout: () => {
         this.title = "Session expired please login first";
+        this.snackBar.open(this.title, '', {
+          duration: 2000,
+       });
         localStorage.clear();
         this.route.navigateByUrl('login')
+        // this._document.defaultView.location.reload();
+
       }
     });
   }
   ngOnDestroy() {
+    console.log(" on distroy called ");
+    
     this.timer.clear();
   }
 }

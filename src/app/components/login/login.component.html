@@ -1,19 +1,18 @@
-<div fxLayout="row" fxLayoutAlign='center center'>
-    <mat-card class="card" fxLayout="column">
-
+<div fxLayout="row" fxLayoutAlign='center center' class="mar">
    
-        <mat-form-field  [style.fontSize.px]="12" appearance="outline">
+    <mat-card class="card" fxLayout="column">
+        <div class="mar" >
+            <h1>  On-line-Pay -center</h1>
+           
+        </div>
+        <mat-form-field [style.fontSize.px]="12" appearance="outline">
             <mat-label>email</mat-label>
             <input matInput [(ngModel)]="email" placeholder="email">
-       
         </mat-form-field>
-        <mat-form-field  [style.fontSize.px]="12" appearance="outline">
+        <mat-form-field [style.fontSize.px]="12" appearance="outline">
             <mat-label>password</mat-label>
             <input matInput [(ngModel)]="password" placeholder="password">
-    
         </mat-form-field>
-        <button mat-raised-button color="primary" (click)="submit()">Primary</button>
-
+        <button mat-raised-button color="primary" (click)="submit()">login</button>
     </mat-card>
-
 </div>

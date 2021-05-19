@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpService } from '../../services/http.service';
 import { Router} from '@angular/router'
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-login',
@@ -10,7 +11,7 @@ import { Router} from '@angular/router'
 export class LoginComponent implements OnInit {
   public email;
   public password;
-  constructor(private http: HttpService,private router:Router) { }
+  constructor(private http: HttpService,private router:Router,private snackBar: MatSnackBar) { }
 
   ngOnInit() {
   }
@@ -26,6 +27,9 @@ export class LoginComponent implements OnInit {
       console.log(res.data);
       localStorage.setItem('usertoken',res.data.token)
       this.router.navigateByUrl('pay')
+      this.snackBar.open('login succesfull', '', {
+        duration: 2000,
+     });
 
 
     }, err => {
