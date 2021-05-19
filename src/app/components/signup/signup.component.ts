@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MatSnackBar } from '@angular/material';
 import { HttpService } from '../../services/http.service'
 @Component({
   selector: 'app-signup',
@@ -10,7 +11,7 @@ export class SignupComponent implements OnInit {
   public username;
   public email;
   public phone
-  constructor(private htppService: HttpService) { }
+  constructor(private htppService: HttpService, private snackBar: MatSnackBar) { }
 
   ngOnInit() {
   }
@@ -22,12 +23,18 @@ export class SignupComponent implements OnInit {
       username: this.username
     }
     console.log(req);
-    
+
     this.htppService.Post('register', req).subscribe((res) => {
       console.log(" res ", res);
+      this.snackBar.open('please check your mail to create account ', '', {
+        duration: 3000,
+      });
 
     }, (error) => {
       console.log(error);
+      this.snackBar.open("invalid email please provide valid email address", '', {
+        duration: 3000,
+      });
 
     })
   }

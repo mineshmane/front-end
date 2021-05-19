@@ -13,6 +13,11 @@
             <mat-label>password</mat-label>
             <input matInput [(ngModel)]="password" placeholder="password">
         </mat-form-field>
+        <div fxLayout="row" fxLayoutAlign="space-between center">
+            <a routerLink="/signup">create account</a>
         <button mat-raised-button color="primary" (click)="submit()">login</button>
+
+
+        </div>
     </mat-card>
 </div>
