@@ -10,7 +10,8 @@ export class SignupComponent implements OnInit {
 
   public username;
   public email;
-  public phone
+  public phone;
+  public password;
   constructor(private htppService: HttpService, private snackBar: MatSnackBar) { }
 
   ngOnInit() {
@@ -20,7 +21,8 @@ export class SignupComponent implements OnInit {
     let req = {
       phone: this.phone,
       email: this.email,
-      username: this.username
+      username: this.username,
+      password:this.password
     }
     console.log(req);
 

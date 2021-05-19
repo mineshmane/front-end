@@ -1,20 +1,27 @@
 <div fxLayout="row" fxLayoutAlign='center center'>
     <mat-card class="card" fxLayout="column">
-
-        <mat-form-field appearance="outline">
+        <div>
+            <h1>Create Account </h1>
+        </div>
+        <mat-form-field appearance="outline" [style.fontSize.px]="12" >
             <mat-label>username</mat-label>
             <input matInput [(ngModel)]="username" placeholder="username">
-           
+
         </mat-form-field>
-        <mat-form-field appearance="outline">
+        <mat-form-field appearance="outline" [style.fontSize.px]="12" >
             <mat-label>email</mat-label>
             <input matInput [(ngModel)]="email" placeholder="email">
-          
+
         </mat-form-field>
-        <mat-form-field appearance="outline">
-            <mat-label>phoned</mat-label>
+        <mat-form-field appearance="outline" [style.fontSize.px]="12" >
+            <mat-label>phone</mat-label>
             <input matInput [(ngModel)]="phone" placeholder="phone">
-         
+
+        </mat-form-field>
+        <mat-form-field appearance="outline" [style.fontSize.px]="12" >
+            <mat-label>password</mat-label>
+            <input matInput [(ngModel)]="password" placeholder="password">
+
         </mat-form-field>
         <button mat-raised-button color="primary" (click)="submit()">Primary</button>
 
