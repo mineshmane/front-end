@@ -1,3 +1,4 @@
+
 class IdleTimer {
     constructor({ timeout, onTimeout }) {
       this.timeout = timeout;
@@ -17,6 +18,7 @@ class IdleTimer {
           if (this.onTimeout) {
             this.onTimeout();
             this.cleanUp();
+          console.log(" time out")
           }
         }
       }, 1000);

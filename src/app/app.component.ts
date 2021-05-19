@@ -8,7 +8,7 @@ import { Router} from '@angular/router'
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Payment';
+  title = 'Online Pay center';
   timer: any;
   constructor(private route:Router){
 
@@ -16,9 +16,9 @@ export class AppComponent {
 
   ngOnInit() {
     this.timer = new IdleTimer({
-      timeout: 30, //expired after 50 sec 
+      timeout: 30, //expired after 30 sec 
       onTimeout: () => {
-        this.title = "Timeout";
+        this.title = "Session expired please login first";
         localStorage.clear();
         this.route.navigateByUrl('login')
       }
