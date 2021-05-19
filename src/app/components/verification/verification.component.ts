@@ -20,7 +20,7 @@ export class VerificationComponent implements OnInit {
     let token = this.route.snapshot.params.token;
     console.log(token);
 
-    this.htppService.Post('verify/' + token, {}).subscribe(res => {
+    this.htppService.Post('verification/' + token, {}).subscribe(res => {
       console.log(res);
       this.snackBar.open('Your account is created successfully', '', {
         duration: 3000,
