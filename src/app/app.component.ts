@@ -1,4 +1,4 @@
-import { Component, OnDestroy ,Inject} from '@angular/core';
+import { Component, OnDestroy ,Inject, OnInit} from '@angular/core';
 import IdleTimer from './idealtimer';
 import { Router} from '@angular/router';
 import { DOCUMENT } from '@angular/common';
@@ -9,7 +9,7 @@ import { MatSnackBar } from '@angular/material';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnDestroy {
+export class AppComponent implements OnDestroy,OnInit {
   title = 'Online Pay center';
   timer: any;
   constructor(private route:Router,private snackBar: MatSnackBar,
@@ -28,8 +28,8 @@ export class AppComponent implements OnDestroy {
        });
         localStorage.clear();
         this.route.navigateByUrl('login')
-        // this._document.defaultView.location.reload();
-
+        this.ngOnInit();
+       
       }
     });
   }
