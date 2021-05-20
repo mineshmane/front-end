@@ -1,6 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-import { MatSnackBar } from '@angular/material';
 import { HttpService } from '../../services/http.service'
+import IdleTimer from '../../idealtimer';
+import { Component, OnDestroy, Inject, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { DOCUMENT } from '@angular/common';
+import { MatSnackBar } from '@angular/material';
+import { BnNgIdleService } from 'bn-ng-idle';
 @Component({
   selector: 'app-payment',
   templateUrl: './payment.component.html',
@@ -9,9 +13,30 @@ import { HttpService } from '../../services/http.service'
 export class PaymentComponent implements OnInit {
   public Amount;
   public amount = 0;
-  constructor(private http: HttpService, private snackBar: MatSnackBar) { }
+  timer: any;
+  title;
+  constructor(private http: HttpService, private bnIdle: BnNgIdleService,
+
+    private route: Router, private snackBar: MatSnackBar,
+    @Inject(DOCUMENT) private _document: Document
+  ) { }
 
   ngOnInit() {
+
+    this.bnIdle.startWatching(60).subscribe((isTimedOut: boolean) => {
+      if (isTimedOut) {
+        console.log('session expired');
+        this.title = "Session expired please login first";
+        this.snackBar.open(this.title, '', {
+          duration: 2000,
+        });
+        localStorage.clear();
+
+        this.route.navigateByUrl('/login')
+
+      }
+    });
+
     this.getAmount();
   }
 
@@ -56,5 +81,11 @@ export class PaymentComponent implements OnInit {
 
     })
   }
+
+  // ngOnDestroy() {
+  //   console.log(" on distroy called ");
+
+  //   this.timer.cleanUp();
+  // }
 
 }

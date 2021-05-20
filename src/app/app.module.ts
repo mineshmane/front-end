@@ -15,7 +15,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { VerificationComponent } from './components/verification/verification.component';
 import { PaymentComponent } from './components/payment/payment.component';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
-
+import { BnNgIdleService } from 'bn-ng-idle';
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,7 +31,7 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     BrowserAnimationsModule, MatFormFieldModule, FlexLayoutModule,MatButtonModule,FormsModule,
     MatInputModule,
   ],
-  providers: [],
+  providers: [BnNgIdleService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

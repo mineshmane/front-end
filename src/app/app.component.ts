@@ -19,19 +19,19 @@ export class AppComponent implements OnDestroy,OnInit {
   }
 
   ngOnInit() {
-    this.timer = new IdleTimer({
-      timeout: 30, //expired after 30 sec 
-      onTimeout: () => {
-        this.title = "Session expired please login first";
-        this.snackBar.open(this.title, '', {
-          duration: 2000,
-       });
-        localStorage.clear();
-        this.route.navigateByUrl('login')
-        this.ngOnInit();
+    // this.timer = new IdleTimer({
+    //   timeout: 30, //expired after 30 sec 
+    //   onTimeout: () => {
+    //     this.title = "Session expired please login first";
+    //     this.snackBar.open(this.title, '', {
+    //       duration: 2000,
+    //    });
+    //     localStorage.clear();
+    //     this.route.navigateByUrl('login')
+    //     this.ngOnInit();
        
-      }
-    });
+    //   }
+    // });
   }
   ngOnDestroy() {
     console.log(" on distroy called ");
