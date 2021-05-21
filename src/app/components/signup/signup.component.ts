@@ -34,7 +34,7 @@ export class SignupComponent implements OnInit {
 
     }, (error) => {
       console.log(error);
-      this.snackBar.open("invalid email please provide valid email address", '', {
+      this.snackBar.open(error, '', {
         duration: 3000,
       });
 

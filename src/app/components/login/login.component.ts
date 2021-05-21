@@ -14,6 +14,7 @@ export class LoginComponent implements OnInit {
   constructor(private http: HttpService,private router:Router,private snackBar: MatSnackBar) { }
 
   ngOnInit() {
+    // this.ngOnInit();
   }
 
   submit() {
